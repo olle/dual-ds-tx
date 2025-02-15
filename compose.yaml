@@ -4,9 +4,9 @@ services:
     image: postgres:latest
     restart: always
     environment:
-      - POSTGRES_USER=alpha
-      - POSTGRES_PASSWORD=alpha
-      - POSTGRES_DB=alpha
+      POSTGRES_USER: alpha
+      POSTGRES_PASSWORD: alpha
+      POSTGRES_DB: alpha
     ports:
       - "5433:5432"
     volumes:
@@ -16,9 +16,9 @@ services:
     image: postgres:latest
     restart: always
     environment:
-      - POSTGRES_USER=omega
-      - POSTGRES_PASSWORD=omega
-      - POSTGRES_DB=omega
+      POSTGRES_USER: omega
+      POSTGRES_PASSWORD: omega
+      POSTGRES_DB: omega
     ports:
       - "5444:5432"
     volumes:
