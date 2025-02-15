@@ -1,0 +1,31 @@
+services:
+
+  "db-alpha":
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=alpha
+      - POSTGRES_PASSWORD=alpha
+      - POSTGRES_DB=alpha
+    ports:
+      - "5433:5432"
+    volumes:
+      - db-alpha:/var/lib/postgresql/data
+
+  "db-omega":
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=omega
+      - POSTGRES_PASSWORD=omega
+      - POSTGRES_DB=omega
+    ports:
+      - "5444:5432"
+    volumes:
+      - db-omega:/var/lib/postgresql/data
+
+volumes:
+  db-alpha:
+    driver: local
+  db-omega:
+    driver: local

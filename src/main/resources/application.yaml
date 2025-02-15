@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: dual-ds-tx
+  datasource:
+    alpha:
+      url: jdbc:postgresql://localhost:5433/alpha
+      hikari:
+        pool-name: alpha-pool
+        auto-commit: false
+    omega:
+      url: jdbc:postgresql://localhost:5444/omega
+      hikari:
+        pool-name: omega-pool
+        auto-commit: false
