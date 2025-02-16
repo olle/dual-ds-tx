@@ -1,19 +1,26 @@
 spring:
   application:
     name: dual-ds-tx
+  threads.virtual.enabled: true
   datasource:
     alpha:
-      jdbc-url: jdbc:postgresql://localhost:5433/alpha
+      url: jdbc:postgresql://localhost:5433/alpha
       username: alpha
       password: alpha
       hikari:
+        minimum-idle: 0
+        idle-timeout: 10000
+        maximum-pool-size: 1
         pool-name: alpha-pool
         auto-commit: false
     omega:
-      jdbc-url: jdbc:postgresql://localhost:5444/omega
+      url: jdbc:postgresql://localhost:5444/omega
       username: omega
       password: omega
       hikari:
+        minimum-idle: 0
+        idle-timeout: 10000
+        maximum-pool-size: 1
         pool-name: omega-pool
         auto-commit: false
 management:
@@ -38,3 +45,9 @@ management:
       show-details: always
       probes:
         enabled: true
+logging:
+  level:
+    com.zaxxer.hikari: WARN
+    org.springframework.jdbc: DEBUG
+    org.springframework.transaction: TRACE
+    #org.springframework.transaction.interceptor: TRACE
